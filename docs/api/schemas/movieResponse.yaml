@@ -1,0 +1,27 @@
+type: object
+properties:
+  id:
+    type: integer
+    example: 1
+    description: Unique identifier
+  title:
+    type: string
+    example: "Inception"
+    description: The title movie
+  director:
+    type: string
+    example: "Christopher Nolan"
+    description: The director movie
+  releaseYear:
+    type: integer
+    example: 2010
+    description: The release year movie
+  genre:
+    type: string
+    example: "Sci-Fi"
+    description: The genre movie
+required:
+  - id
+  - title
+  - director
+  - releaseYear

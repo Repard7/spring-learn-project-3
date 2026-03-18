@@ -1,0 +1,196 @@
+{
+  "info": {
+    "_postman_id": "8e8e0582-19e0-4f22-8e70-fd94d507e09d",
+    "name": "Spring-learn-project-3",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43203027"
+  },
+  "item": [
+    {
+      "name": "GetAll",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base}}/movies",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "movies"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetByDirector",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base}}/movies/director/Christopher Nolan",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "movies",
+            "director",
+            "Christopher Nolan"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetRandom",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base}}/movies/random",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "movies",
+            "random"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetById",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base}}/movies/1",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "movies",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetCountByGenre",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base}}/movies/драма/count",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "movies",
+            "драма",
+            "count"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Inception\",\r\n  \"director\": \"Christopher Nolan\",\r\n  \"releaseYear\": 2010,\r\n  \"genre\": \"Sci-Fi\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base}}/movies",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "movies"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DeleteById",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base}}/movies/1",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "movies",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UpdateById",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Inception\",\r\n  \"director\": \"Christopher Nolan\",\r\n  \"releaseYear\": 2010,\r\n  \"genre\": \"Sci-Fi\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base}}/movies/1",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "movies",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+openapi: 3.1.0
+info:
+  title: OpenAPI Movies
+  description: Performing REST operations om movies
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080/api'
+    description: local development server
+paths:
+  /movies:
+    get:
+      summary: Get all movies
+      operationId: getAllMovies
+      responses:
+        '200':
+          description: A list movies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: './schemas/movieResponse.yaml'
+
+    post:
+      summary: Create new movie
+      operationId: createNewMovie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './schemas/createMovieRequest.yaml'
+      responses:
+        '201':
+          description: movie created
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/movieResponse.yaml'
+        '400':
+          description: bad request
+  /movies/{id}:
+    get:
+      summary: Get movie by id
+      operationId: getMovieById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A movie
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/movieResponse.yaml'
+        '404':
+          description: not found
+    put:
+      summary: Update movie by id
+      operationId: updateMovieById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './schemas/updateMovieRequest.yaml'
+      responses:
+        '200':
+          description: Updated movie
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/movieResponse.yaml'
+        '404':
+          description: not found
+        '400':
+          description: bad request
+    delete:
+      summary: Delete movie by id
+      operationId: deleteMovieById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successfully delete
+        '404':
+          description: not found
+  /movies/random:
+    get:
+      summary: Get random movie
+      operationId: getRandomMovie
+      responses:
+        '200':
+          description: Random movie
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/movieResponse.yaml'
+        '404':
+          description: not found
+
+  /movies/director/{director}:
+    get:
+      summary: Get all movies by director
+      operationId: getAllMoviesByDirector
+      parameters:
+        - name: director
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Movie by director
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: './schemas/movieResponse.yaml'
+        '404':
+          description: not found
+  /movies/{genre}/count:
+    get:
+      summary: Get count movies by genre
+      operationId: getCountMoviesByGenre
+      parameters:
+        - name: genre
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Number of matches by genre
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 5
+
+
+
+
+  
