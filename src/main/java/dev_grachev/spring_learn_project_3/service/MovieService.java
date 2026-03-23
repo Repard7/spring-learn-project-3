@@ -52,12 +52,13 @@ public class MovieService {
         return convertToDto(savedMovie);
     }
 
-    public void updateMovie(Long id, UpdateMovieRequest request) {
+    public MovieResponse updateMovie(Long id, UpdateMovieRequest request) {
         Movie movie = movieRepository.findById(id).orElseThrow();
 
         populateMovieByRequestData(movie, request.getTitle(), request.getDirector(), request.getGenre(), request.getReleaseYear());
 
-        movieRepository.save(movie);
+        Movie updatedMovie = movieRepository.save(movie);
+        return convertToDto(updatedMovie);
     }
 
     public Boolean deleteMovie(Long id){
