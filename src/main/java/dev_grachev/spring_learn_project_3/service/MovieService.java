@@ -32,8 +32,8 @@ public class MovieService {
 
         if(movies.isEmpty()) return Optional.empty();
 
-        long randomIndex = random.nextInt(movies.size());
-        return movieRepository.findById(randomIndex).map(this::convertToDto);
+        int randomIndex = random.nextInt(movies.size());
+        return Optional.of(convertToDto(movies.get(randomIndex)));
     }
 
     public List<MovieResponse> findAllMoviesByDirector(String director){
